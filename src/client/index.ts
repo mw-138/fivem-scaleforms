@@ -8,23 +8,23 @@ on("onClientResourceStart", async (name: string) => {
 
   const [celebration, celebration_bg, celebration_fg] = await showHeist(
     {
-      missionTextLabel: "~y~BANK HEIST~s~",
+      missionTextLabel: "BANK HEIST",
       passFailTextLabel: "PASSED.",
       messageLabel: "",
     },
     [
-      ["Total Payout", "~g~$~s~50000"],
-      ["value3", "~g~$~s~50000"],
-      ["value2", "~b~1999~s~"],
-      ["value1", "TEST"],
+      // ["Total Payout", "~w~$50000"],
+      // ["value3", "~w~$50000"],
+      // ["value2", "~w~1999"],
+      // ["value1", "~w~TEST"],
     ],
     {
-      startMoney: 3000,
+      startMoney: 0,
       finishMoney: 5000000,
-      topText: "",
+      topText: "Your take",
       bottomText: "",
-      rightHandStat: "woah",
-      rightHandStatIcon: 0,
+      rightHandStat: "",
+      rightHandStatIcon: 3,
     },
     {
       xpGained: 50000,
@@ -33,24 +33,19 @@ on("onClientResourceStart", async (name: string) => {
       maxLevelXP: 2360,
       currentRank: 68,
       nextRank: 69,
-      rankTextSmall: "LEVEL UP.",
-      rankTextBig: "~b~Nice.~s~",
+      rankTextSmall: "",
+      rankTextBig: "LEVEL UP.",
     }
   );
 
-  // const handle = await requestScaleform("HUD_MP_CASH");
-  // await callScaleformFunction(handle, "SET_PLAYER_MP_CASH", false, 500);
-  // await callScaleformFunction(handle, "READY", false, 0);
-
   setTick(async () => {
-    // DrawScaleformMovieFullscreen(handle, 255, 255, 255, 255, 0);
     DrawScaleformMovieFullscreenMasked(
       celebration_bg,
       celebration_fg,
       255,
       255,
       255,
-      50
+      255
     );
     DrawScaleformMovieFullscreen(celebration, 255, 255, 255, 255, 0);
   });
